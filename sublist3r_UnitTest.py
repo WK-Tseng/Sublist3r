@@ -219,10 +219,10 @@ class sublist3r_UnitTest(unittest.TestCase):
                                 'connlab.tw':[],
                                 'gronextapps.com':[],
                                 'ntust.info':['mail.ntust.info'],
-                                'ais3.org':['pre-exam.ais3.org', 'file.ais3.org', 'www.ais3.org', 'b0rder1and.ais3.org', 'eofqual.ais3.org', 'quiz.ais3.org'],
-                                'gronext.com':['unifi.gronext.com', 'mail.gronext.com', 'okameinko.gronext.com'],
-                                'keniver.com':['blog.keniver.com'],
-                                'taiwandestiny.com':['blog.taiwandestiny.com', 'learning.taiwandestiny.com', 'online.taiwandestiny.com']
+                                'ais3.org':[],
+                                'gronext.com':[],
+                                'keniver.com':[],
+                                'taiwandestiny.com':[]
                             }
 
         SubDomain_Data = {      '0b100.com':set(),
