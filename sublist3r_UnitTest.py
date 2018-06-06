@@ -108,15 +108,15 @@ class sublist3r_UnitTest(unittest.TestCase):
     def test_Bing(self):    
         engines = 'Bing'
 
-        Test_Domain_Data = {    '0b100.com':[],
+        Test_Domain_Data = {    '0b100.com':['blog.0b100.com'],
                                 'conan.site':[],
                                 'connlab.tw':[],
                                 'gronextapps.com':[],
                                 'ntust.info':[],
-                                'ais3.org':[],
+                                'ais3.org':['pre-exam.ais3.org'],
                                 'gronext.com':[],
-                                'keniver.com':[],
-                                'taiwandestiny.com':[]
+                                'keniver.com':['blog.keniver.com'],
+                                'taiwandestiny.com':['online.taiwandestiny.com', 'learning.taiwandestiny.com', 'blog.taiwandestiny.com']
                             }
 
         SubDomain_Data = {      '0b100.com':set(),
@@ -218,7 +218,7 @@ class sublist3r_UnitTest(unittest.TestCase):
                                 'conan.site':['unifi.conan.site'],
                                 'connlab.tw':[],
                                 'gronextapps.com':[],
-                                'ntust.info':[],
+                                'ntust.info':['mail.ntust.info'],
                                 'ais3.org':[],
                                 'gronext.com':[],
                                 'keniver.com':[],

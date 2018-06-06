@@ -380,7 +380,8 @@ class AskEnum(enumratorBaseThreaded):
 
     def extract_domains(self, resp):
         links_list = list()
-        link_regx = re.compile('<p class="web-result-url">(.*?)</p>')
+        #link_regx = re.compile('<p class="web-result-url">(.*?)</p>')
+        link_regx = re.compile('<p class="PartialSearchResults-item-url">(.*?)</p>')
         try:
             links_list = link_regx.findall(resp)
             for link in links_list:
