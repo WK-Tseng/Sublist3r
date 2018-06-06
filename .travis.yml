@@ -11,4 +11,4 @@ script:
   - coverage combine
 
 after_success:
-  - codecov
+  - codecov -t 1c0cd6f3-a2e0-413d-a5f4-2e844e0e7bbd
