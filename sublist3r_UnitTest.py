@@ -6,7 +6,7 @@ class sublist3r_UnitTest(unittest.TestCase):
     def setUp(self):
         self.no_threads = 30
         self.savefile = None
-        self.ports = None
+        self.ports = '80,433'
         self.verbose = False
         self.enable_bruteforce = False
         self.times = 1
@@ -16,7 +16,8 @@ class sublist3r_UnitTest(unittest.TestCase):
             for i in Test_Domain_Data:
                 domain = i
                 TestData = Test_Domain_Data[i]
-                subdomains = sublist3r.main(domain, self.no_threads, self.savefile, self.ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
+                #subdomains = sublist3r.main(domain, self.no_threads, self.savefile, self.ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
+                subdomains = sublist3r.main(domain, self.no_threads, engines + '_' + domain + '.txt', self.ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
                 SubDomain_Data[i] = SubDomain_Data[i] | set(subdomains)
                 
         all_Test = set()
@@ -42,8 +43,34 @@ class sublist3r_UnitTest(unittest.TestCase):
         else:
             self.assertEqual(all_SubDomain, all_Test)
         #self.assertEqual(all_SubDomain, all_Test)
+    
+    def test_other(self):
+        print("test_other")
+        sublist3r.parse_args()
+        sublist3r.parser_error("error test");
+    
+    def test_port(self):
+        print("test_port")
+        engines = None
+        domain = '0b100.com'
+        ports = None
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=self.enable_bruteforce, engines=engines)
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=True, verbose=True, enable_bruteforce=self.enable_bruteforce, engines='SSL')
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=True, engines='SSL')
+        #test = ['blog.0b100.com']
+        #self.assertEqual(set(subdomains), set(test))
+    '''
+    def test_bruteforce(self):
+        print("test_bruteforce")
+        engines = 'SSL'
+        domain = '0b100.com'
+        ports = '80'
+        subdomains = sublist3r.main(domain, self.no_threads, engines + '_' + domain + '.txt', ports, silent=True, verbose=self.verbose, enable_bruteforce=True, engines=engines)
+    '''
 
+    
     def test_Baidu(self):    
+        print("test_Baidu")
         engines = 'Baidu'
 
         Test_Domain_Data = {    '0b100.com':[],

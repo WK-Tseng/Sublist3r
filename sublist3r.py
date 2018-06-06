@@ -83,7 +83,7 @@ def parser_error(errmsg):
     banner()
     print("Usage: python " + sys.argv[0] + " [Options] use -h for help")
     print(R + "Error: " + errmsg + W)
-    sys.exit()
+    #sys.exit()
 
 
 def parse_args():
