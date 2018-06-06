@@ -37,7 +37,7 @@ class sublist3r_UnitTest(unittest.TestCase):
 
         if len(ans) == 0:
             self.assertEqual(all_SubDomain, all_Test)
-        else if len(ans) <= error:
+        else if: len(ans) <= error:
             self.assertEqual(True, True)
         else:
             self.assertEqual(all_SubDomain, all_Test)

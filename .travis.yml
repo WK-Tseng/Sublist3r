@@ -10,6 +10,7 @@ install:
 script:
   - coverage run --concurrency=multiprocessing sublist3r_UnitTest.py
   - coverage combine
+  - codecov -t 1c0cd6f3-a2e0-413d-a5f4-2e844e0e7bbd
 
 after_success:
-  - codecov -t 1c0cd6f3-a2e0-413d-a5f4-2e844e0e7bbd
+  #- codecov -t 1c0cd6f3-a2e0-413d-a5f4-2e844e0e7bbd
