@@ -218,7 +218,7 @@ class sublist3r_UnitTest(unittest.TestCase):
                                 'conan.site':['unifi.conan.site'],
                                 'connlab.tw':[],
                                 'gronextapps.com':[],
-                                'ntust.info':['mail.ntust.info'],
+                                'ntust.info':[],
                                 'ais3.org':[],
                                 'gronext.com':[],
                                 'keniver.com':[],
