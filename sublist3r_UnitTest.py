@@ -52,7 +52,7 @@ class sublist3r_UnitTest(unittest.TestCase):
                                 'taiwandestiny.com':set()
                             }
         self.ansEqual(engines, Test_Domain_Data, SubDomain_Data)
-
+    '''
     def test_Yahoo(self):    
         engines = 'Yahoo'
 
@@ -316,7 +316,7 @@ class sublist3r_UnitTest(unittest.TestCase):
                             }
 
         self.ansEqual(engines, Test_Domain_Data, SubDomain_Data)
-
+    '''
 
 if __name__ == '__main__':
     unittest.main()  
