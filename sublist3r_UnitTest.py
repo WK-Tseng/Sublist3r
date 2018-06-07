@@ -7,7 +7,7 @@ class sublist3r_UnitTest(unittest.TestCase):
         self.no_threads = 30
         self.savefile = None
         self.ports = '80,433'
-        self.verbose = False
+        self.verbose = True
         self.enable_bruteforce = False
         self.times = 1
 
@@ -48,17 +48,27 @@ class sublist3r_UnitTest(unittest.TestCase):
         print("test_other")
         sublist3r.parse_args()
         sublist3r.parser_error("error test");
-    
-    def test_port(self):
-        print("test_port")
+
+    def test_all(self):
         engines = None
         domain = '0b100.com'
         ports = None
-        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=self.enable_bruteforce, engines=engines)
-        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=True, verbose=True, enable_bruteforce=self.enable_bruteforce, engines='SSL')
-        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=True, engines='SSL')
-        #test = ['blog.0b100.com']
-        #self.assertEqual(set(subdomains), set(test))
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
+        print("test_all")
+        print("==============================")
+        print(subdomains)
+        print("==============================")
+
+    def test_google_com(self):
+        engines = 'ThreatCrowd,Netcraft'
+        domain = 'googe.com'
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
+    
+    def test_bruteforce(self):
+        engines = 'ThreatCrowd,Netcraft'
+        domain = '0b100.com'
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=True, engines=engines)
+
     '''
     def test_bruteforce(self):
         print("test_bruteforce")
