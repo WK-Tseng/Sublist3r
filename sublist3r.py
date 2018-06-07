@@ -151,6 +151,7 @@ class enumratorBase(object):
               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
               'Accept-Language': 'en-US,en;q=0.8',
               'Accept-Encoding': 'gzip',
+              'set-cookie':'',
           }
         self.print_banner()
 
