@@ -51,7 +51,7 @@ class sublist3r_UnitTest(unittest.TestCase):
 
     def test_all(self):
         engines = None
-        domain = '0b100.com'
+        domain = 'http://0b100.com'
         ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
         print("test_all")
@@ -60,7 +60,7 @@ class sublist3r_UnitTest(unittest.TestCase):
         print("==============================")
 
     def test_google_com(self):
-        engines = 'ThreatCrowd,Netcraft'
+        engines = 'ThreatCrowd,Netcraft,Error'
         domain = 'google.com'
         ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=self.enable_bruteforce, engines=engines)
@@ -70,8 +70,10 @@ class sublist3r_UnitTest(unittest.TestCase):
         engines = 'ThreatCrowd'
         domain = '0b100.com'
         ports = None
-        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=True, engines=engines)
-        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=True, verbose=self.verbose, enable_bruteforce=True, engines=engines)
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=False, enable_bruteforce=True, engines=engines)
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=True, verbose=False, enable_bruteforce=True, engines=engines)
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=True, enable_bruteforce=True, engines=engines)
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, None, silent=True, verbose=True, enable_bruteforce=True, engines=engines)
 
     def test_error_domains(self):
         engines = 'ThreatCrowd,Netcraft,Error'
