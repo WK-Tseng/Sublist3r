@@ -98,6 +98,10 @@ class sublist3r_UnitTest(unittest.TestCase):
         a = sublist3r.GoogleEnum('', q=list())
         a.extract_domains(None)
 
+        a = sublist3r.GoogleEnum('', q=list())
+        a.extract_domains(None)
+        a.check_response_errors('Our systems have detected unusual traffic')
+
     def test_other(self):
         print("test_other")
         sublist3r.parse_args()
@@ -433,3 +437,4 @@ class sublist3r_UnitTest(unittest.TestCase):
     
 if __name__ == '__main__':
     unittest.main()
+
