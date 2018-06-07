@@ -151,7 +151,6 @@ class enumratorBase(object):
               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
               'Accept-Language': 'en-US,en;q=0.8',
               'Accept-Encoding': 'gzip',
-              'set-cookie':'',
           }
         self.print_banner()
 
@@ -466,9 +465,9 @@ class BaiduEnum(enumratorBaseThreaded):
         self.engine_name = "Baidu"
         self.MAX_DOMAINS = 2
         self.MAX_PAGES = 760
-        enumratorBaseThreaded.__init__(self, base_url, self.engine_name, domain, subdomains, q=q, silent=silent, verbose=verbose)
-        self.querydomain = self.domain
+        self.querydomain = domain
         self.q = q
+        enumratorBaseThreaded.__init__(self, base_url, self.engine_name, domain, subdomains, q=q, silent=silent, verbose=verbose)
         return
 
     def extract_domains(self, resp):
