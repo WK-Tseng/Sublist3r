@@ -280,7 +280,7 @@ class GoogleEnum(enumratorBaseThreaded):
         base_url = "https://google.com/search?q={query}&btnG=Search&hl=en-US&biw=&bih=&gbv=1&start={page_no}&filter=0"
         self.engine_name = "Google"
         self.MAX_DOMAINS = 11
-        self.MAX_PAGES = 200
+        self.MAX_PAGES = 50
         super(GoogleEnum, self).__init__(base_url, self.engine_name, domain, subdomains, q=q, silent=silent, verbose=verbose)
         self.q = q
         return
