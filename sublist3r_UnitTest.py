@@ -456,11 +456,4 @@ class sublist3r_UnitTest(unittest.TestCase):
        sublist3r.__main__()
     
 if __name__ == '__main__':
-    #unittest.main()
-
-    
-    
-
-
-    
-    
+    unittest.main()
