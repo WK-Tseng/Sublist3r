@@ -252,13 +252,15 @@ class enumratorBase(object):
         return self.subdomains
 
 
-class enumratorBaseThreaded(multiprocessing.Process, enumratorBase):
+#class enumratorBaseThreaded(multiprocessing.Process, enumratorBase):
+class enumratorBaseThreaded(enumratorBase):
     def __init__(self, base_url, engine_name, domain, subdomains=None, q=None, lock=threading.Lock(), silent=False, verbose=True):
         subdomains = subdomains or []
         enumratorBase.__init__(self, base_url, engine_name, domain, subdomains, silent=silent, verbose=verbose)
-        multiprocessing.Process.__init__(self)
-        self.lock = lock
+        #multiprocessing.Process.__init__(self)
+        #self.lock = lock
         self.q = q
+        self.run()
         return
 
     def run(self):
@@ -923,10 +925,10 @@ def main(domain, threads, savefile, ports, silent, verbose, enable_bruteforce, e
 
     # Start the engines enumeration
     enums = [enum(domain, [], q=subdomains_queue, silent=silent, verbose=verbose) for enum in chosenEnums]
-    for enum in enums:
-        enum.start()
-    for enum in enums:
-        enum.join()
+    #for enum in enums:
+    #    enum.start()
+    #for enum in enums:
+    #    enum.join()
 
     subdomains = set(subdomains_queue)
     for subdomain in subdomains:
@@ -967,10 +969,11 @@ def main(domain, threads, savefile, ports, silent, verbose, enable_bruteforce, e
                 print(G + subdomain + W)
     return subdomains
 
-
-if __name__ == "__main__":
+def __main__():
     args = parse_args()
     domain = args.domain
+    if domain == None:
+        domain = ''
     threads = args.threads
     savefile = args.output
     ports = args.ports
@@ -981,3 +984,7 @@ if __name__ == "__main__":
         verbose = True
     banner()
     res = main(domain, threads, savefile, ports, silent=False, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
+
+if __name__ == "__main__":
+    __main__()
+    

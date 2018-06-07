@@ -8,8 +8,7 @@ install:
   - pip install codecov
 # command to run tests
 script:
-  - coverage run --branch --concurrency=multiprocessing sublist3r_UnitTest.py
-  - coverage combine
+  - coverage run --branch sublist3r_UnitTest.py
   - coverage report -m
   - codecov -t 1c0cd6f3-a2e0-413d-a5f4-2e844e0e7bbd
 

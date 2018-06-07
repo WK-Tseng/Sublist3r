@@ -1,6 +1,7 @@
 import unittest
 import sublist3r 
 import math
+import os
 
 class sublist3r_UnitTest(unittest.TestCase):                 
     def setUp(self):
@@ -10,7 +11,7 @@ class sublist3r_UnitTest(unittest.TestCase):
         self.verbose = True
         self.enable_bruteforce = False
         self.times = 1
-
+    
     def ansEqual(self, engines, Test_Domain_Data, SubDomain_Data):
         for _ in range(self.times):
             for i in Test_Domain_Data:
@@ -368,6 +369,8 @@ class sublist3r_UnitTest(unittest.TestCase):
 
         self.ansEqual(engines, Test_Domain_Data, SubDomain_Data)
     
+    def test_main(self):
+       sublist3r.__main__()
 
 if __name__ == '__main__':
-    unittest.main()  
+    unittest.main()
