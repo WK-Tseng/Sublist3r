@@ -141,7 +141,7 @@ class enumratorBase(object):
         self.domain = urlparse.urlparse(domain).netloc
         self.session = requests.Session()
         self.subdomains = []
-        self.timeout = 25
+        self.timeout = 50
         self.base_url = base_url
         self.engine_name = engine_name
         self.silent = silent
