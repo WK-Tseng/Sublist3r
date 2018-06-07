@@ -781,6 +781,7 @@ class CrtSearch(enumratorBaseThreaded):
             links = link_regx.findall(resp)
             for link in links:
                 subdomain = link.strip()
+                print(subdomain)
                 if not subdomain.endswith(self.domain) or '*' in subdomain:
                     continue
 

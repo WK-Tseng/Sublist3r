@@ -57,16 +57,26 @@ class sublist3r_UnitTest(unittest.TestCase):
         a = sublist3r.NetcraftEnum('')
         cookies = {'set-cookie': 'OAID=69f084302dd59da0dc3ddf6c0ebe82da; expires=Fri, 07-Jun-2019 16:10:09 GMT; Max-Age=31536000; path=/'}
         a.get_cookies(cookies)
+        a.req(None)
+        a.extract_domains('''<a href="http://toolbar.netcraft.com/site_report?url=www.google.com"></a>''')
+        a.domain = 'test'
+        a.extract_domains('''<a href="http://toolbar.netcraft.com/site_report?url=www.google.com"></a>''')
+        a.extract_domains(None)
 
         a = sublist3r.PassiveDNS('')
         a.base_url = '{domain}'
         a.enumerate()
         a.extract_domains(None)
+        a.domain = 'google.com'
+        a.extract_domains('["google.com"]')
 
         a = sublist3r.CrtSearch('')
         a.base_url = '{domain}'
         a.enumerate()
         a.extract_domains(None)
+        a.verbose = False
+        a.domain = 'test'
+        a.extract_domains("<TD>pre-exam.ais3.org</TD><TD>pre-exam@ais3.test</TD>")
 
         a = sublist3r.ThreatCrowd(None)
         a.base_url = '{domain}'
@@ -77,6 +87,11 @@ class sublist3r_UnitTest(unittest.TestCase):
         a.base_url = '{domain}'
         a.enumerate()
         a.extract_domains(None)
+        a.domain = 'file.ais3.org'
+        a.extract_domains('<div class="enum "><a target="_blank" href="/en/domain/file.ais3.org/information/">file.ais3.org</a></div>')
+        a.verbose = False
+        a.domain = 'ais3.org'
+        a.extract_domains('<div class="enum "><a target="_blank" href="/en/domain/file.ais3.org/information/">file.ais3.org</a></div>')
 
         a = sublist3r.DNSdumpster(None)
         a.base_url = '{domain}'
@@ -88,18 +103,23 @@ class sublist3r_UnitTest(unittest.TestCase):
 
         a = sublist3r.BingEnum('')
         a.extract_domains(None)
+        a.verbose = False
+        a.extract_domains('''<li class="b_algo"><h2><a href="gsuite.google.com/intl/en/terms/privacy.html" h="ID=SERP,5142.1">Google's privacy statements</a></h2>''')
+
 
         a = sublist3r.AskEnum('', q=list())
         a.extract_domains(None)
+        a.extract_domains('<p class="PartialSearchResults-item-url">http://ais3.org</p>')
 
         a = sublist3r.YahooEnum('', q=list())
         a.extract_domains(None)
+        a.domain = 'test'
+        a.extract_domains('<span class=" fz-ms fw-m fc-12th wr-bw lh-17">http://www.aiu3.<b>org</b></span>')
 
         a = sublist3r.GoogleEnum('', q=list())
         a.extract_domains(None)
-
-        a = sublist3r.GoogleEnum('', q=list())
-        a.extract_domains(None)
+        a.verbose = False
+        a.extract_domains('<cite class="iUh30">https://ais3.org/</cite>')
         a.check_response_errors('Our systems have detected unusual traffic')
 
     def test_other(self):
@@ -436,5 +456,11 @@ class sublist3r_UnitTest(unittest.TestCase):
        sublist3r.__main__()
     
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
 
+    
+    
+
+
+    
+    
