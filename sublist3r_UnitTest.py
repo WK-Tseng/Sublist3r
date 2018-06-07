@@ -62,23 +62,15 @@ class sublist3r_UnitTest(unittest.TestCase):
     def test_google_com(self):
         engines = 'ThreatCrowd,Netcraft'
         domain = 'googe.com'
+        ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
     
     def test_bruteforce(self):
-        engines = 'ThreatCrowd,Netcraft'
+        engines = 'ThreatCrowd'
         domain = '0b100.com'
+        ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=True, engines=engines)
 
-    '''
-    def test_bruteforce(self):
-        print("test_bruteforce")
-        engines = 'SSL'
-        domain = '0b100.com'
-        ports = '80'
-        subdomains = sublist3r.main(domain, self.no_threads, engines + '_' + domain + '.txt', ports, silent=True, verbose=self.verbose, enable_bruteforce=True, engines=engines)
-    '''
-
-    
     def test_Baidu(self):    
         print("test_Baidu")
         engines = 'Baidu'
