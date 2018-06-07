@@ -70,7 +70,7 @@ class sublist3r_UnitTest(unittest.TestCase):
     
     def test_bruteforce(self):
         engines = 'ThreatCrowd'
-        domain = '0b100.com'
+        domain = 'taiwandestiny.com'
         ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=False, enable_bruteforce=True, engines=engines)
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=True, verbose=False, enable_bruteforce=True, engines=engines)
