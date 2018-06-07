@@ -44,19 +44,64 @@ class sublist3r_UnitTest(unittest.TestCase):
             self.assertEqual(all_SubDomain, all_Test)
         #self.assertEqual(all_SubDomain, all_Test)
     
-    def test_other(self):
-        print("test_other")
-        sublist3r.parse_args()
-        sublist3r.parser_error("error test");
+    def test_exceptions(self):
+        a = sublist3r.enumratorBase('','','')
+        a.get_response(None)
+        a.MAX_DOMAINS = 0
+        a.check_max_subdomains(10)
+        a.base_url='{query}{page_no}'
+        a.send_req('')
+        a.extract_domains('')
+        a.generate_query()
 
         a = sublist3r.NetcraftEnum('')
         cookies = {'set-cookie': 'OAID=69f084302dd59da0dc3ddf6c0ebe82da; expires=Fri, 07-Jun-2019 16:10:09 GMT; Max-Age=31536000; path=/'}
         a.get_cookies(cookies)
 
-        a = sublist3r.enumratorBase('','','')
-        a.get_response(None)
-        a.MAX_DOMAINS = 0
-        a.check_max_subdomains(10)
+        a = sublist3r.PassiveDNS('')
+        a.base_url = '{domain}'
+        a.enumerate()
+        a.extract_domains(None)
+
+        a = sublist3r.CrtSearch('')
+        a.base_url = '{domain}'
+        a.enumerate()
+        a.extract_domains(None)
+
+        a = sublist3r.ThreatCrowd(None)
+        a.base_url = '{domain}'
+        a.enumerate()
+        a.extract_domains(None)
+
+        a = sublist3r.Virustotal(None)
+        a.base_url = '{domain}'
+        a.enumerate()
+        a.extract_domains(None)
+
+        a = sublist3r.DNSdumpster(None)
+        a.base_url = '{domain}'
+        a.check_host(None)
+        a.req('',None)
+
+        a = sublist3r.BaiduEnum('')
+        a.extract_domains(None)
+
+        a = sublist3r.BingEnum('')
+        a.extract_domains(None)
+
+        a = sublist3r.AskEnum('', q=list())
+        a.extract_domains(None)
+
+        a = sublist3r.YahooEnum('', q=list())
+        a.extract_domains(None)
+
+        a = sublist3r.GoogleEnum('', q=list())
+        a.extract_domains(None)
+
+    def test_other(self):
+        print("test_other")
+        sublist3r.parse_args()
+        sublist3r.parser_error("error test");
 
     def test_all(self):
         engines = None
