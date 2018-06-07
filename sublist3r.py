@@ -883,7 +883,7 @@ def main(domain, threads, savefile, ports, silent, verbose, enable_bruteforce, e
         if not silent:
             print(R + "Error: Please enter a valid domain" + W)
         return []
-
+    
     if not domain.startswith('http://') or not domain.startswith('https://'):
         domain = 'http://' + domain
 

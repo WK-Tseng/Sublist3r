@@ -51,8 +51,10 @@ class sublist3r_UnitTest(unittest.TestCase):
 
     def test_all(self):
         engines = None
-        domain = 'http://0b100.com'
+        domain = 'http0b100.com'
         ports = None
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
+        domain = 'taiwandestiny.com'
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
         print("test_all")
         print("==============================")
