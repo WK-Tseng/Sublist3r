@@ -61,7 +61,7 @@ class sublist3r_UnitTest(unittest.TestCase):
 
     def test_google_com(self):
         engines = 'ThreatCrowd,Netcraft'
-        domain = 'googe.com'
+        domain = 'google.com'
         ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
     
@@ -70,6 +70,12 @@ class sublist3r_UnitTest(unittest.TestCase):
         domain = '0b100.com'
         ports = None
         subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=True, engines=engines)
+
+    def test_error_domains(self):
+        engines = 'ThreatCrowd,Netcraft'
+        domain = '\\\\\\'
+        ports = None
+        subdomains = sublist3r.main(domain, self.no_threads, self.savefile, ports, silent=False, verbose=self.verbose, enable_bruteforce=self.enable_bruteforce, engines=engines)
 
     def test_Baidu(self):    
         print("test_Baidu")
@@ -184,7 +190,7 @@ class sublist3r_UnitTest(unittest.TestCase):
                                 'connlab.tw':[],
                                 'gronextapps.com':[],
                                 'ntust.info':[],
-                                'ais3.org':[],
+                                'ais3.org':['pre-exam.ais3.org'],
                                 'gronext.com':[],
                                 'keniver.com':['blog.keniver.com'],
                                 'taiwandestiny.com':['blog.taiwandestiny.com', 'learning.taiwandestiny.com', 'online.taiwandestiny.com']
