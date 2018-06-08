@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/WK-Tseng/Sublist3r.svg?branch=master)](https://travis-ci.org/WK-Tseng/Sublist3r)
+[![Build Status](https://travis-ci.org/WK-Tseng/Sublist3r.svg?branch=master)](https://travis-ci.org/WK-Tseng/Sublist3r)[![Build Status](https://travis-ci.org/WK-Tseng/Sublist3r.svg?branch=master)](https://travis-ci.org/WK-Tseng/Sublist3r)
 
 language: python 3.6
 
